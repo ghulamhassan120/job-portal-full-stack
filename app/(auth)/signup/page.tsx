@@ -17,7 +17,7 @@ import {
   SelectValue,
 } from "@/components/ui/select";
 import { UserRound, Lock, Mail, Eye, EyeOff } from "lucide-react";
-
+type Role = "applicant" | "employee";
 interface SignupPageData {
   name: string;
   userName: string;
@@ -134,9 +134,9 @@ const SignupPage = () => {
 
             <Select defaultValue="applicant" 
             value={formData.role}
-            onValueChange={(value:"applicant"|"employee")=>{
-              handleInputChange("role",value)
-            }}
+          onValueChange={(value) => {
+    handleInputChange("role", value as Role);
+  }}
             >
               <SelectTrigger id="role" className="w-full">
                 <SelectValue placeholder="Select your role" />
